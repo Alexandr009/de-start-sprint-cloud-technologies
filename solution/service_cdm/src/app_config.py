@@ -6,6 +6,10 @@ from lib.pg import PgConnect
 
 class AppConfig:
     CERTIFICATE_PATH = '/crt/YandexInternalRootCA.crt'
+    # батч обрабатывается дольше интервала — сервис читает без простоев,
+    # наложившиеся запуски планировщик пропускает
+    DEFAULT_JOB_INTERVAL = 5
+    BATCH_SIZE = 100
 
     def __init__(self) -> None:
 
